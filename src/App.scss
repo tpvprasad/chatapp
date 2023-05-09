@@ -370,7 +370,9 @@
 
           .messageContainer {
             align-items: flex-end;
-
+            img {
+              align-items: flex-end;
+            }
             p {
               background-color: #3e3c61;
               color: white;

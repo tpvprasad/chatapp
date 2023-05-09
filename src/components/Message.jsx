@@ -1,7 +1,7 @@
 import React, { useContext ,useEffect,useRef} from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ChatContext } from '../context/ChatContext';
-
+import image from "../assets/pdfimage.png";
 export default function Message({message}) {
   const currentUser = useContext(AuthContext);
   const {data} = useContext(ChatContext);
@@ -22,8 +22,7 @@ export default function Message({message}) {
         </div>
         <div className="messageContainer">
             {message.text && <p>{message.text}</p>}
-            {/* {message.img && message.img === "image/jpeg" ? message.img : <a href={message.img} target="_blank"><img src={image} alt="images"/></a>} */}
-             {message.img && <img src={message.img} alt="images"/>}
+            {message.img && <img src={message.img} alt="images"/>}
              
         </div>
     </div>
