@@ -56,9 +56,9 @@ export default function Register() {
           <input type="text" placeholder='Display the name' required />
           <input type="email" placeholder='Email' required />
           <input type="password" placeholder='Password' required />
-          <input type="file" id="file" style={{ display: "none" }} />
+          <input type="file" id="file" style={{ display: "none" }} required />
           <label htmlFor='file'>
-            <img src={image} alt="profile"/>
+            <img src={image} alt="profile" required/>
             <span>Add the file</span>
           </label>
           <button>Sign Up</button>

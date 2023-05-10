@@ -2,15 +2,30 @@ import React, { useContext ,useEffect,useRef} from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ChatContext } from '../context/ChatContext';
 import image from "../assets/pdfimage.png";
+import docximage from "../assets/docx_icon.png";
 export default function Message({message}) {
   const currentUser = useContext(AuthContext);
   const {data} = useContext(ChatContext);
-  // console.log(message);
-  // `${Math.floor((new Date().getTime()/1000) - message.date.seconds)} seconds ago`
+
   const ref = useRef();
   useEffect(()=> {
     ref.current?.scrollIntoView({behaviour: "smooth"});
   },[message]);
+  
+  const handleDispatch = (m) => {
+  
+       switch (m.type) {
+       case "jpeg":
+         return <img src={m.url} alt=""/>;
+       case "png":
+         return <img src={m.url} alt=""/>
+       case "pdf":
+         return <a href={m.url} target="_blank" rel="noreferrer"><img src={image} alt=""/></a>  
+       default:
+         return <a href={m.url} target="_blank" rel="noreferrer"><img src={docximage} alt=""/></a>
+        
+    }
+  }
   return (
     <div className={`message ${message.senderId === currentUser.uid && `owner`}`} ref={ref}>
         <div className="messageInfo">
@@ -22,8 +37,8 @@ export default function Message({message}) {
         </div>
         <div className="messageContainer">
             {message.text && <p>{message.text}</p>}
-            {message.img && <img src={message.img} alt="images"/>}
-             
+            {message.img &&  handleDispatch(message.img)}
+                  
         </div>
     </div>
   )

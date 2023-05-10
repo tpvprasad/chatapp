@@ -1,27 +1,26 @@
 import React, { useState ,useContext } from 'react';
-import SearchIcon from '@mui/icons-material/Search';
 import { AuthContext } from '../context/AuthContext';
 import { collection, query, where, getDocs,getDoc ,setDoc,doc, updateDoc, serverTimestamp} from "firebase/firestore";
 import {db} from "../firebase";
-
+import image from "../assets/searchimg.png";
 
 export default function Search() {
   const currentUser = useContext(AuthContext);
   const [username , setUsername] = useState("");
   const [user, setUser] = useState(null);
   const [err,setErr] = useState(false);
+
   const handleSearch= async () => {
     const q = query(collection(db, "users"), where("displayName", "==", username));
     try{
-
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        // console.log(doc.id, " => ", doc.data());
-        setUser(doc.data());
-        console.log(user);
-      });
+        const querySnapshot = await getDocs(q);      
+        querySnapshot.forEach((doc) => {
+          // console.log(doc.id, " => ", doc.data());
+          setUser(doc.data());
+          console.log(user);
+        });   
     }catch(error) {
-      setErr(true);
+      // setErr(true);
     }
   }
   const handleKey = (e) => {
@@ -64,8 +63,9 @@ export default function Search() {
   return (
     <div className='search'>
      <div className='searchform'>
-    <input type="text" placeholder='find an user' onChange={e=> setUsername(e.target.value)} onKeyDown={handleKey} value={username}/>
-    <SearchIcon className='searchIcon'></SearchIcon>
+    <input type="text" placeholder='find an user' 
+    onChange={e=> setUsername(e.target.value)} onKeyDown={handleKey} value={username}/>
+    <img className='searchIcon' src={image} alt=""/>
      </div>
      {err && <p>User not found..</p>}
      {user && 

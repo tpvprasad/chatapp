@@ -71,12 +71,13 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        
+
         img {
           width: 32px;
           height: 32px;
           object-fit: cover;
         }
+
         span {
           margin-left: 10px;
         }
@@ -109,11 +110,10 @@
   .homeWrapper {
     border: 1px solid white;
     display: flex;
-    width: 70%;
+    width: 65%;
     height: 80%;
     border-radius: 10px;
     overflow: hidden;
-
     @include tablet {
       width: 90%;
     }
@@ -122,8 +122,8 @@
   .sidebar {
     flex: 1;
     background-color: #3e3c61;
-    position: relative;
-    // overflow-y: scroll;
+    overflow: hidden;
+    // position: relative;
 
     .navbar {
       height: 50px;
@@ -134,9 +134,7 @@
       padding: 10px;
       border: none;
       border-bottom: 1px solid gray;
-      overflow: hidden;
       color: #ddddf7;
-
       p {
         font-weight: bold;
 
@@ -171,24 +169,26 @@
         color: white;
         box-shadow: rgba(236, 225, 225, 0.35) 0px -50px 36px -28px inset;
 
-        @include tablet {
-          position: absolute;
-          bottom: 10px;
-          left: 0px;
-        }
+        // @include tablet {
+        //   position: absolute;
+        //   bottom: 10px;
+        //   left: 0px;
+        // }
       }
     }
 
     .search {
       display: flex;
       flex-direction: column;
-
+       width: 100%;
       .searchform {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        // justify-content: center;
+        height: 50px;
         padding: 10px;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        width: 90%;
 
         input {
           outline: none;
@@ -205,7 +205,8 @@
         }
 
         .searchIcon {
-          color: white;
+          width: 32px;
+          height: 32px;
         }
 
       }
@@ -239,6 +240,28 @@
     .Chats {
       display: flex;
       flex-direction: column;
+      // max-height: max-content;
+      height: calc(100% - 140px);
+      overflow-y: scroll;
+       /* width */
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #3e3c61;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
       .userChat {
         display: flex;
@@ -246,6 +269,7 @@
         padding: 10px;
         gap: 10px;
         cursor: pointer;
+        height: 50px;
 
         &:hover {
           background-color: #2f2d52;
@@ -308,10 +332,10 @@
         cursor: pointer;
 
         PersonAddIcon {
-           .dropdownOptions {
+          .dropdownOptions {
             width: 200px;
 
-           }
+          }
         }
       }
     }
@@ -321,6 +345,26 @@
       height: calc(100% - 160px);
       padding: 10px;
       overflow-y: scroll;
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #ddddf7;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
       .message {
         display: flex;
@@ -360,8 +404,8 @@
           }
 
           img {
-            width: 50%;
-            // height: 200px;
+            width: 200px;
+            height: 200px;
           }
         }
 
@@ -370,9 +414,11 @@
 
           .messageContainer {
             align-items: flex-end;
+
             img {
               align-items: flex-end;
             }
+
             p {
               background-color: #3e3c61;
               color: white;
