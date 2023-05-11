@@ -4,14 +4,12 @@ import {getStorage} from "firebase/storage";
 import {getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDtIkmfEynjjLuAGwnXfjlZy2TkDVqO5d8",
-  authDomain: "fir-course-f33c9.firebaseapp.com",
-  databaseURL: "https://fir-course-f33c9-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "fir-course-f33c9",
-  storageBucket: "fir-course-f33c9.appspot.com",
-  messagingSenderId: "1047923384476",
-  appId: "1:1047923384476:web:cf5d41f1b8378cbef3cd59",
-  measurementId: "G-TB9XCV4ND2"
+  apiKey: "AIzaSyARXl8lI0ijRe6pUaCgjhjd3bUc8i3Xkqo",
+  authDomain: "chat-app-a019e.firebaseapp.com",
+  projectId: "chat-app-a019e",
+  storageBucket: "chat-app-a019e.appspot.com",
+  messagingSenderId: "47914744513",
+  appId: "1:47914744513:web:ad5f634c348e60707db240"
 };
 
 export const app = initializeApp(firebaseConfig);

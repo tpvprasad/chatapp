@@ -17,7 +17,6 @@ export default function Search() {
         querySnapshot.forEach((doc) => {
           // console.log(doc.id, " => ", doc.data());
           setUser(doc.data());
-          console.log(user);
         });   
     }catch(error) {
       // setErr(true);
